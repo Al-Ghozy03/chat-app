@@ -49,7 +49,7 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Future friend() async {
-    Uri url = Uri.parse("$baseUrl/friend?id=$userId");
+    Uri url = Uri.parse("$baseUrl/friend?id=$userId&limit=10&page=1");
     headers["Authorization"] = "Bearer ${storage.read("token")} ";
     final res = await http.get(url, headers: headers);
     if (res.statusCode == 200) {
@@ -149,13 +149,12 @@ class _ProfilePageState extends State<ProfilePage> {
   void initState() {
     profile = ApiService().profile(userId);
     myFriend = friend();
-    myFriend.then((value) => controller.increment(value.data.length));
+    myFriend.then((value) => controller.setFriend(value.total));
     super.initState();
   }
 
   @override
   void dispose() {
-    controller.toDefault();
     super.dispose();
   }
 

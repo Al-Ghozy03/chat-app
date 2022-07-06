@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 
-String baseUrl = "http://192.168.1.8:4003";
+String baseUrl = "http://192.168.0.17:4003";
 Map<String, String> headers = {
   "Content-Type": "application/json",
   "Authorization": ""

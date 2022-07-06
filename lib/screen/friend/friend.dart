@@ -137,7 +137,7 @@ class _MyFriendState extends State<MyFriend> {
                                   maxRadius: width / 17,
                                   backgroundColor: grayInput,
                                   backgroundImage: NetworkImage(
-                                      data.receiver[0].photoProfile),
+                                      data.asker[0].photoProfile),
                                 ),
                       SizedBox(
                         width: width / 30,

@@ -187,18 +187,20 @@ class _FriendPageState extends State<FriendPage> {
             bool isFriend = false;
             bool isAsking = false;
             
+          // --------------------------------------
             bool isAsked = data.from.any((element) =>
                 element.from != token &&
                 element.status == "ask" &&
                 element.to == token);
+          // --------------------------------------
+
             isAsking = data.from.any((element) =>
                 element.from == token && element.from == "ask" ||
                 element.to == token && element.status == "ask");
 
             if (data.from.isNotEmpty && data.to.isEmpty) {
               isAsking = data.from.any((element) =>
-                  element.from == token && element.status == "ask" ||
-                  element.to == token && element.status == "ask");
+                  element.from == token && element.status == "ask" );
 
               isFriend = data.from.any((element) =>
                   element.from == token && element.status == "friend" ||
@@ -206,16 +208,14 @@ class _FriendPageState extends State<FriendPage> {
             }
             if (data.from.isEmpty && data.to.isNotEmpty) {
               isAsking = data.to.any((element) =>
-                  element.from == token && element.status == "ask" ||
-                  element.to == token && element.status == "ask");
+                  element.from == token && element.status == "ask" );
               isFriend = data.to.any((element) =>
                   element.from == token && element.status == "friend" ||
                   element.to == token && element.status == "friend");
             }
             if (data.from.isNotEmpty && data.to.isNotEmpty) {
               isAsking = data.from.any((element) =>
-                  element.from == token && element.status == "ask" ||
-                  element.to == token && element.status == "ask");
+                  element.from == token && element.status == "ask" );
 
               isFriend = data.from.any((element) =>
                   element.from == token && element.status == "friend" ||
@@ -223,8 +223,7 @@ class _FriendPageState extends State<FriendPage> {
             }
             if (data.from.isEmpty && data.to.isNotEmpty) {
               isAsking = data.to.any((element) =>
-                  element.from == token && element.status == "ask" ||
-                  element.to == token && element.status == "ask");
+                  element.from == token && element.status == "ask" );
               isFriend = data.to.any((element) =>
                   element.from == token && element.status == "friend" ||
                   element.to == token && element.status == "friend");
